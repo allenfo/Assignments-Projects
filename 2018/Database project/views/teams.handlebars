@@ -1,0 +1,45 @@
+
+<h2>Team Table</h2>
+
+<table id="tableTeams" border="1">
+        <tr>
+                <th>Name</th>
+                <th>Rowers</th>
+                <th>Coaches</th>
+		<th>Boats</th>
+                <th>Location</th>
+                <th>Focus</th>
+                <th>Update</th>
+                <th>Delete</th>
+        </tr>
+                {{#each teams}}
+                        <tr>
+                                <td>{{this.team_name}}</td>
+                                <td>{{this.rowers}}</td>
+                                <td>{{this.coaches}}</td>
+				<td>{{this.boats}}</td>
+                                <td>{{this.location}}</td>
+                                <td>{{this.focus}}</td>
+                                <td><a href="/teams/{{this.id}}">Update</a></td>
+                                <td><button onClick="deleteTeam({{this.id}})">Delete</td>
+                        </tr>
+                {{/each}}
+</table>
+<br>
+<h2>Add a new Team</h2>
+<form id="update-team"action ="/teams" method="post" >
+        Team Name:
+        <input type="text" name="team_name" id="team_name"><br>
+        Rowers:
+        <input type="number" name="rowers" id="rowers"min="0" max="10000"><br>
+        Boats:
+        <input type="number" name="boats" id="boats"><br>
+        Coaches:
+        <input type="number" name="coaches" id="coaches "min="0" max="5"><br>
+        Location:
+         <input type="text" name="location" id="location"><br>
+         Focus:
+          <input type="text" name="focus" id="focus"><br>
+        <input type="submit" name="" value="submit" id="submitItem">
+</form>
+<br>

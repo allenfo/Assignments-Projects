@@ -1,0 +1,59 @@
+<html>
+<h2>Rower Table</h2>
+<h4>Search for Rowers based on their team</h4>
+<form id="rowerSearch" action="" method="">
+<select id="team_filter" name= "rowerSearch">
+{{#each teams}}
+<option value="{{this.id}}">{{this.team_name}}</option>
+{{/each}}
+</select>
+<input type="button" value="Search" onclick="filterRowersByTeam()">
+</form>
+<br>
+<a href='/rowers'>Click here for full table again</a>
+<br>
+<table id="tableRowers" border="1">
+        <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>Height(inches)</th>
+                <th>2k score(watts)</th>
+                <th>Team</th>
+                <th>Update</th>
+                <th>Delete</th>
+        </tr>
+                {{#each rowers}}
+                        <tr>
+                                <td>{{this.fname}}</td>
+                                <td>{{this.lname}}</td>
+                                <td>{{this.age}}</td>
+                                <td>{{this.height_inches}}</td>
+                                <td>{{this.erg_score_watts}}</td>
+                                <td>{{this.team_name}}</td>
+                                <td><a href="/rowers/{{this.id}}">Update</a></td>
+                                <td><button onclick="deleteRower({{this.id}})"> delete</button></td>
+                        </tr>
+                {{/each}}
+</table>
+<br>
+<h2>Add a new Rower</h2>
+<form id="team_rowers"action ="/rowers" method="post" >
+        First Name:
+        <input type="text" name="fname" id="fname"><br>
+        Last Name:
+        <input type="text" name="lname" id="lname"><br>
+        Age:
+        <input type="number" name="age" id="age"><br>
+        Height Inches:
+        <input type="number" name="height_inches" id="height_inches "min="0" max="100"><br>
+        Erg Score:
+        <input type="number" name="erg_score_watts" id="erg_score_watts "min="0" max="1000"><br>
+        Team: <select name="team"> 
+        {{#each teams}}
+        <option value="{{id}}">{{this.team_name}}</option>
+        {{/each}}
+    </select>
+       <input type="submit" value="submit">
+</form>
+</html>

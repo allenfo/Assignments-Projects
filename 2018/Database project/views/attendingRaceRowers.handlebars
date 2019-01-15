@@ -1,0 +1,35 @@
+<h2>Rowers going to races (many to many)</h2>
+
+<table id="tableAttendingRace" border="1">
+        <tr>
+                <th>Rower</th>
+		<th>Race</th>
+       		<th>Update</th>
+		<th>Delete</th>
+        </tr>
+                {{#each attendingRaceRowers}}
+                        <tr>
+                                <td>{{this.fname}} {{this.lname}}</td>
+				<td>{{this.race_name}}</td>
+     				<td><a href="/attendingRaceRowers/{{this.id}}">Update</a></td>
+				<td><button onclick="deleteAttendingRaceRower({{this.id}})"> delete</button></td>
+                        </tr>
+                {{/each}}
+</table>
+<br>
+<h2>Add who is going to the regatta</h2>
+<form id="attendingRaceRower" action="/attendingRaceRowers" method="post">
+       	Rower Name:
+        <select name="rower_number">
+	{{#each rower}}
+                <option value="{{this.id}}">{{this.fname}} {{this.lname}}</option>
+	{{/each}}
+	</select><br>
+	Race Name:
+        <select name="race_number">
+	{{#each race}}
+                <option value="{{this.id}}">{{this.race_name}}</option>
+	{{/each}}
+	</select><br>
+        <input type="submit" value="submit">
+</form>

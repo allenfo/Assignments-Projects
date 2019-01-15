@@ -1,0 +1,10 @@
+<h2>Update the race that this rower is attending(many to many)</h2>
+<form id="update-arr"action ="/attendingRaceRowers" method="post" >
+Race Name:
+        <select name="race_number">
+	{{#each race}}
+                <option value="{{this.id}}">{{this.race_name}}</option>
+	{{/each}}
+	</select><br>
+       	</form>
+<button onclick="updateAttendingRaceRower({{attendingRaceRower.id}})">Update</button>

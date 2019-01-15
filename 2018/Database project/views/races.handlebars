@@ -1,0 +1,51 @@
+<h2>Races Table</h2>
+
+<table id="tableRaces" border="1">
+        <tr>
+                <th>Race Name</th>
+                <th>Date</th>
+                <th>Location</th>
+                <th>Registration Deadline</th>
+                <th>Rules</th>
+                <th>Type of Race</th>
+		<th>Update</th>
+		<th>Delete</th>
+        </tr>
+                {{#each races}}
+                        <tr>
+                                <td>{{this.race_name}}</td>
+                                <td>{{this.date}}</td>
+                                <td>{{this.location}}</td>
+                                <td>{{this.registration_deadline}}</td>
+                                <td>{{this.rules}}</td>
+                                <td>{{this.type}}</td>
+                                <td><a href="/races/{{this.id}}">Update</a></td>
+				<td><button onClick="deleteRace({{this.id}})">Delete</td>
+
+                        </tr>
+                {{/each}}
+</table>
+<br>
+<h2>Add a new Race</h2>
+<form id="races"action ="/races" method="post" >
+        Race Name:
+        <input type="text" name="race_name" id="race_name"><br>
+        Date:
+        <input type="date" name="date" id="date"><br>
+        Location:
+        <select name="location_id" id="location"><br>
+	{{#each raceVenue}}
+	<option value={{id}}>{{this.location}}</option>
+	{{/each}}
+	</select><br>
+        Registration Deadline:
+        <input type="date" name="registration_deadline" id="registration_deadline"><br>
+        Rules:
+        <input type="text" name="rules" id="rules"><br>
+        Type of Race:
+        <select name="type">
+                <option value="Head">Head</option>
+                <option value="Sprint">Sprint</option>
+	</select>
+      <input type="submit" value="submit">
+</form>

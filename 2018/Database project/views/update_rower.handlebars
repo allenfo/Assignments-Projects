@@ -1,0 +1,21 @@
+<h2>Update rower {{rowers.fname}} {{rowers.lname}}</h2>
+<form id="update-rowers" action ="/rowers" method="post" >
+        First Name:
+        <input type="text" name="fname" value="{{rowers.fname}}"><br>
+        Last Name:
+        <input type="text" name="lname" value="{{rowers.lname}}"><br>
+        Age:
+        <input type="number" name="age" value="{{rowers.age}}"><br>
+        Height Inches:
+        <input type="number" name="height_inches" value="{{rowers.height_inches}}" "min="0" max="100"><br>
+        2k Score:
+        <input type="number" name="erg_score_watts" value="{{rowers.erg_score_watts}}" "min="0" max="1000"><br>
+       Team:
+	<select name="team" id="team-select">
+	{{#each teams}}
+	<option value="{{this.id}}">{{this.team_name}}</option>
+	{{/each}}
+	</select><br>
+	
+</form>
+	<button onclick="updateRower({{rowers.id}})">Update</button>

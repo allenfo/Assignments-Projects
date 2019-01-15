@@ -1,0 +1,23 @@
+<h2>Update a race</h2>
+<form id="update-races"action ="/races" method="post" >
+        Race Name:
+        <input type="text" name="race_name" value="{{races.race_name}}"><br>
+        Date:
+        <input type="date" name="date" value="{{races.date}}"><br>
+        Location:
+        <select name="location_id">
+	{{#each raceVenue}}
+	<option value={{id}}>{{this.location}}</option>
+	{{/each}}
+	</select>
+        Registration Deadline:
+        <input type="date" name="registration_deadline" value="{{races.registration_deadline}}"> <br>
+        Rules:
+        <input type="text" name="rules" value="{{races.rules}}"><br>
+        Type of Race:
+        <select name="type" value="{{races.type}}">
+                <option value="Head">Head</option>
+                <option value="Sprint">Sprint</option>
+	</select>
+</form>
+<button onclick="updateRace({{races.id}})">Update</button>

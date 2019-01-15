@@ -1,0 +1,16 @@
+<h2>Update {{teams.team_name}}</h2>
+<form id="update-team"action ="/teams" method="post" >
+        Team Name:
+        <input type="text" name="team_name" value="{{teams.team_name}}"><br>
+        Rowers:
+        <input type="number" name="rowers" value="{{teams.rowers}}"min="0" max="1000"><br>
+        Boats:
+        <input type="number" name="boats" value="{{teams.boats}}"><br>
+        Coaches:
+        <input type="number" name="coaches" value="{{teams.coaches}}"min="0" max="5"><br>
+        Location:
+         <input type="text" name="location" value="{{teams.location}}"><br>
+         Focus:
+          <input type="text" name="focus" value="{{teams.focus}}"><br>
+</form>
+<button onclick="updateTeam({{teams.id}})">Update</button>

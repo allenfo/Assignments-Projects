@@ -1,0 +1,10 @@
+<h2>Update where this team is going (many to many)</h2>
+<form id="update-art"action ="/attendingRaceTeams" method="post" >
+Race Name:
+        <select name="race_number">
+	{{#each race}}
+                <option value="{{this.id}}">{{this.race_name}}</option>
+	{{/each}}
+	</select><br>
+</form>
+<button onclick="updateAttendingRaceTeam({{attendingRaceTeams.id}})">Update</button>

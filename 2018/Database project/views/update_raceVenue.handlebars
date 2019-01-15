@@ -1,0 +1,15 @@
+<h2>Update a race venue</h2>
+<form id="update-raceVenue"action ="/raceVenue" method="post" >
+       Location:
+        <input type="text" name="location"value="{{raceVenue.location}}"><br>
+        Water Type:
+        <select name="water_type">
+        <option value="River">River</option>
+        <option value="Lake">Lake</option>
+	</select>
+        Current Speed
+        <input type="number" name="current_speed_fps" min="0" max="10000"value="{{raceVenue.current_speed_fps}}"><br>
+        Length of Course:
+        <input type="number" name="length_of_course_meters"  value="{{raceVenue.length_of_course_meters}}"min="0" max="10000"><br>
+</form>
+<button onclick="updateRaceVenue({{raceVenue.id}})">Update</button>

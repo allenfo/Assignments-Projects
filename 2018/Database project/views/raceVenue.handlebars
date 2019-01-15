@@ -1,0 +1,38 @@
+<h2>Race Venue Table</h2>
+<table id="tableRaceVen" border="1">
+        <tr>
+                <th>Location</th>
+                <th>Water Type</th>
+                <th>Current Speed</th>
+                <th>Length of course in meters</th>
+		<th>Update</th>
+		<th>Delete</th>
+        </tr>
+                {{#each raceVenue}}
+                        <tr>
+                                <td>{{this.location}}</td>
+                                <td>{{this.water_type}}</td>
+                                <td>{{this.current_speed_fps}}</td>
+                                <td>{{this.length_of_course_meters}}</td>
+                                <td><a href="/raceVenue/{{this.id}}">Update</a></td>
+				<td><button onclick="deleteRaceVenue({{this.id}})"> delete</button></td>
+                        </tr>
+                {{/each}}
+</table>
+<br>
+<h2>Add a new Race Venue</h2>
+<form id="race_venue"action ="/raceVenue" method="post" >
+       Location:
+        <input type="text" name="location" id="location"><br>
+        Water Type:
+        <select name="water_type">
+        <option value="River">River</option>
+        <option value="Lake">Lake</option>
+	</select><br>
+        Current Speed
+        <input type="number" name="current_speed_fps" id="current_speed_fps"min="0" max="10000"><br>
+        Length of Course:
+        <input type="number" name="length_of_course_meters" id="length_of_course_meters" min="0" max="10000"><br>
+        <input type="submit" value="submit">
+
+</form>
