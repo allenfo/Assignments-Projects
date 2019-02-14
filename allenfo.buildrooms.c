@@ -26,9 +26,9 @@ char * room_names[10]={
 	"Hayward",
 	"Berkeley",
 	"Alameda",
-	"San_Jo",
+	"SanJo",
 	"Vallejo",
-	"The_Dro"};
+	"TheDro"};
 enum room_type
 {
 	START_ROOM,
